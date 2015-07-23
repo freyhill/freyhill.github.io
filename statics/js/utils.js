@@ -1,17 +1,17 @@
+; !function(win){
 
-(function(){
-var lcom={};
-lcom.fn=function(){
+	var lcom=(function(){
+		
+		function getUrl(){
+			return win.location.href;
+		}
 
-	function geturl(){
-		return window.location.href;
-	}
+		return {
+			getUrl:getUrl
 
+		}
+	})()
 
-	return {
-		geturl:geturl
-	}
-
-}
-window.lcom=lcom;
-})()
+    window.lcom=lcom
+    
+}(window)
