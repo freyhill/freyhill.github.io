@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟弹窗</title>
+	<style>
+	*{margin:0; padding:0;}
+	.btn{ width:30%; 
+		height: 100px; 
+		background: #ff6666; 
+		text-align: center; 
+		line-height: 100px; 
+		border-radius: 8px;
+	    margin: auto;
+	    margin-top: 10%;
+	}
+	.alersection{ 
+		width: 100%; 
+		height: 100%; 
+		position: fixed; 
+		left: 0; 
+		top: 0;}
+
+	.alersection .alertbac{ 
+		width: 100%; 
+		height: 100%; 
+		background: #000; 
+		position: fixed; 
+		left: 0; 
+		top: 0; 
+		z-index: 99; 
+		opacity: 0.6; 
+	}
+	.dialogsec{width: 66%;
+		height: 0;
+		padding-top: 24%;
+		background: #fff;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		z-index: 999;
+		border-radius: 10px;
+	}
+	.abs{ 
+		position: absolute; 
+		left: 0; top:0; 
+		width: 100%; 
+		height: 100%;}
+	.dialogtitle{ 
+		height: 50%; 
+		border-bottom: 1px solid #ddd;
+	}
+	.linecenter{
+		display: -webkit-flex;
+		  display:flex;
+		  -webkit-align-items: center;
+		  align-items: center;
+		  -webkit-justify-content: center;
+		  justify-content: center;
+    }
+	.addd{}
+	.disflex{ display: flex; 
+		display:-webkit-flex;
+	}
+	.flex{ flex:1; -webkit-flex:1;}
+    .dialogbtn{ width: 100%; 
+    	height: 50%;
+    	 bottom: 0; left: 0;}
+	.cancel{ border-right:1px solid #ddd; 
+	}
+	.btn{ 
+		font-size: 26px; 
+		color:#fff;}
+	</style>
+</head>
+<body>
+	<script src="../statics/js/zepto.js"></script>
+	<div class="btn linecenter">点击</div>
+
+<script>
+var dialog=(function(){
+	function alerts(ele,options){
+		$(ele).click(function(){
+			domadd(options);
+		})
+	}
+
+	function domadd(options){
+		var title= options.title || 'higo up';
+		 cancel = options.cancel || 'cancel';
+		 confirm = options.confirm || 'confirm';
+         cancelcallbcak = options.cancelcallbcak || "";
+         confirmcallback = options.confirmcallback || "";
+         anthercallback = options.anthercallback || "";
+
+		 if($("body").hasClass("addd")){
+			  $(".alersection").show();
+		 }else{
+			var divback="<div class='alersection'>"+
+			"<div class='alertbac'></div>"+
+			"<div class='dialogsec'>"+
+				"<div class='abs'>"+
+				 "<div class='dialogtitle linecenter'>"+title+"</div>"+
+				 "<div class='dialogbtn disflex'>"+
+				 		"<div class='cancel linecenter flex'>"+cancel+"</div>"+
+				 		"<div class='confirm linecenter flex'>"+confirm+"</div>"+
+				 "</div>"+
+				"</div>"+
+			"</div>"+
+			"</div>";
+		    $("body").append(divback);
+		    $("body").addClass("addd");
+		}
+
+        if(cancelcallbcak && typeof cancelcallbcak =="function"){
+		    $(".cancel").click(function(){
+		    	cancelcallbcak();
+		    })
+		}
+		if(confirmcallback && typeof confirmcallback =="function"){
+		    $(".confirm").click(function(){
+		    	confirmcallback();
+		    })
+		}
+		if(anthercallback && typeof anthercallback =="function"){
+		    anthercallback();
+		}
+
+		$(".alertbac").click(function(){
+			$(".alersection").hide();
+		})
+
+		$('.cancel').click(function(){
+			$(".alersection").hide();
+		})
+	}
+
+	return {
+		alert:alerts
+	}
+
+})()
+
+
+//调用 
+dialog.alert('.btn',{
+    title:'这是一个弹窗',
+    cancel:'取消',
+    confirm:'确定',
+	cancelcallbcak:function(){
+		window.location.href="http://higo.meilishuo.com";
+	},
+	confirmcallback:function(){
+		window.location.href="http://www.meilishuo.com";
+	},
+	anthercallback:function(){
+		$('.alersection').css({'color':"red",'font-size':"26px"});
+	}
+});
+</script>
+
+
+</body>
+</html>
