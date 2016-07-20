@@ -259,7 +259,7 @@
               
                 
                 <a class="post-title-link" href="/2016/07/20/Express-开发性能优化/" itemprop="url">
-                  Express 开发性能优化
+                  Express 开发性能优化 ｜leinov
                 </a>
               
             
@@ -308,22 +308,12 @@
 
       
         
-          
-            <h2 id="1-使用浏览器缓存"><a href="#1-使用浏览器缓存" class="headerlink" title="1.使用浏览器缓存"></a>1.使用浏览器缓存</h2><p>在app.js里添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var CACHETIME = 60 * 1000 * 60 * 24 * 30;</div><div class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;), &#123; maxAge: CACHETIME &#125;));</div></pre></td></tr></table></figure>
-<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png" style="width:100%;"></p>
-<blockquote>
-<p>给静态文件设置了一年的的浏览器缓存</p>
-</blockquote>
-<h2 id="2-启用压缩"><a href="#2-启用压缩" class="headerlink" title="2.启用压缩"></a>2.启用压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var compression = require(&apos;compression&apos;);</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.use(compression());</div></pre></td></tr></table></figure>
-<p>＊ 安装compression包<br>＊ express version &gt;3.0.0</p>
-<blockquote>
-<p>即使我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件<br><code>Accept-Encoding:gzip</code><br>会大大减少文件的大小，加快请求速度<br><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113038794-1485073076.png" style="width:60%"></p>
-<p>优化后</p>
-</blockquote>
-<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113422810-763354187.png" width="100%"></p>
-
-          
+          我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/20/Express-开发性能优化/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -372,7 +362,7 @@
               
                 
                 <a class="post-title-link" href="/2016/07/20/webpackloader/" itemprop="url">
-                  webpack loader
+                  leinov-webpack loader ｜leinov
                 </a>
               
             
@@ -421,50 +411,12 @@
 
       
         
-          
-            <h3 id="了解webpack请移步webpack初识"><a href="#了解webpack请移步webpack初识" class="headerlink" title="了解webpack请移步webpack初识!"></a>了解webpack请移步<a href="http://www.cnblogs.com/leinov/p/5241185.html" target="_blank" rel="external">webpack初识!</a></h3><h2 id="什么是loader"><a href="#什么是loader" class="headerlink" title="什么是loader"></a>什么是loader</h2><blockquote>
-<p>loaders 用于转换应用程序的资源文件，他们是运行在nodejs下的函数 使用参数来获取一个资源的来源并且返回一个新的来源(资源的位置)，例如：你可以使用loader来告诉webpack去加载一个coffeescript或者jsx</p>
-</blockquote>
-<h2 id="loader-特性"><a href="#loader-特性" class="headerlink" title="loader 特性"></a>loader 特性</h2><ul>
-<li>loaders可以串联，他们应用于管道资源，最后的loader将返回javascript，其它的可返回任意格式（传递给下一个loader）</li>
-<li>loaders 可以同步也可以异步</li>
-<li>loaders在nodejs下运行并且可以做一切可能的事</li>
-<li>loader接受参数，可用于配置里</li>
-<li>loaders可以绑定到extension/RegExps 配置</li>
-<li>loaders 可以通过npm发布和安装</li>
-<li>正常的模块儿可以到处一个loader除了</li>
-<li>loaders 可以访问配置</li>
-<li>插件可以给loaders更多的特性</li>
-<li><p>loaders可以释放任意额外的文件</p>
-<p>如果你对loader的例子感兴趣可以去看下现有的<a href="http://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="external">loader列表</a></p>
-</li>
-</ul>
-<h2 id="解析loaders"><a href="#解析loaders" class="headerlink" title="解析loaders"></a>解析loaders</h2><p>loaders的解析类似模块儿，一个loader模块会导出一个方法并且可被nodejs写为可兼容的javascript，通常情况下通过npm来管理loaders，但你也可以把loader放在自己的应用里</p>
-<h2 id="引用loaders"><a href="#引用loaders" class="headerlink" title="引用loaders"></a>引用loaders</h2><p>按照惯例，虽然不是必须的，但loaders通常被命名为XXX-loader, XXX是上下文名称，比如json-loader.<br>你可能引用loaders通过完整的（真实的）名字例如（json-loader)或者通过他的速记名（.json)<br>loader的名称约定和优先级搜索是通过webpack内置api esolveLoader.moduleTemplates所定义<br>loader的名称约定很有用处，特别是当你通过require()声明来引用的时候，下面会讲到用法</p>
-<h2 id="安装loaders"><a href="#安装loaders" class="headerlink" title="安装loaders"></a>安装loaders</h2><p>如果这个loader可以在npm上安装，你可以安装这个loader通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install xxx-loader --save</div></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install xxx-loader --save-dev</div></pre></td></tr></table></figure></p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>有很多种方法在你的app中使用loaders</p>
-<ul>
-<li>明确的require声明(在想要试用的js文件夹里直接加载)</li>
-<li>通过配置文件配置</li>
-<li>通过CLI配置</li>
-</ul>
-<h3 id="require"><a href="#require" class="headerlink" title="require"></a>require</h3><blockquote>
-<p>提示：如果可以的话尽量不要使用require ，如果你想让你的脚本可运行在服务端和客户端（nodejs和浏览器）使用约定配置文件来配置</p>
-</blockquote>
-<p>通过require声明（define，require.ensure,等等）来加载指定的loaders ，使用!来分割资源loaders，每一部分会被解析到当前的文件</p>
-<p>可以在配置文件里通过加!前缀这种规则重写任意的loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">require(&quot;./loader!./dir/file.txt&quot;);</div><div class="line"></div><div class="line">require(&quot;jade!./template.jade&quot;);</div><div class="line"> </div><div class="line">require(&quot;!style!css!less!bootstrap/less/bootstrap.less&quot;);</div></pre></td></tr></table></figure></p>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p> 你可以通过正则在配置文件里绑定loaders<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    module: &#123;</div><div class="line">        loaders: [</div><div class="line">            &#123; test: /\.jade$/, loader: &quot;jade&quot; &#125;,</div><div class="line">            // =&gt; &quot;jade&quot; loader 用于.jade文件</div><div class="line"></div><div class="line">            &#123; test: /\.css$/, loader: &quot;style!css&quot; &#125;,</div><div class="line">            // =&gt; &quot;style&quot; 和 &quot;css&quot; loader 用于 &quot;.css&quot; 文件</div><div class="line">            //另一种语法</div><div class="line">            &#123; test: /\.css$/, loaders: [&quot;style&quot;, &quot;css&quot;] &#125;,</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="CLI-命令行界面"><a href="#CLI-命令行界面" class="headerlink" title="CLI(命令行界面)"></a>CLI(命令行界面)</h3><p>CLI<br>可以通过命令行来绑定加载器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ webpack --module-bind jade --module-bind &apos;css=style!css&apos;</div><div class="line"> // 使用loader&apos;jade&apos;来加载&apos;.jade&apos;的文件 ,使用loaders &apos;style&apos;和&apos;css&apos;加载&apos;.css&apos;文件</div></pre></td></tr></table></figure></p>
-<h2 id="查询参数"><a href="#查询参数" class="headerlink" title="查询参数"></a>查询参数</h2><p>loader可以使用查询参数通过字符串（像web上的一样）查询字符串被插在?后面例如url-loader?mimetype=image/png.</p>
-<p>提示：查询参数的格式由loader决定，查看loader格式文档大多数的loaders接受如下格式的参数形式（?key=value&amp;key2=value2）和JSON 对象格式 (?{“key”:”value”,”key2”:”value2”}).</p>
-<h3 id="require里"><a href="#require里" class="headerlink" title="require里"></a>require里</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;url-loader?mimetype=image/png!./file.png&quot;);</div></pre></td></tr></table></figure>
-<h3 id="配置文件里"><a href="#配置文件里" class="headerlink" title="配置文件里"></a>配置文件里</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; test: /\.png$/, loader: &quot;url-loader?mimetype=image/png&quot; &#125;</div></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    test: /\.png$/,</div><div class="line">    loader: &quot;url-loader&quot;,</div><div class="line">    query: &#123; mimetype: &quot;image/png&quot; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>CLI方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack --module-bind &quot;png=url-loader?mimetype=image/png&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><p>&gt;<br>以上文段皆翻译自webpack官网若有错误请指正，接下来说下个人对loader的理解，我觉得loader是一个很于意思的功能，webpack其实运行在node下的一个编译站，她可以将各种个样的文件打包起来，包括图片呀，css呀，视频呀，但无论怎么打包最后导出的都是javascrit，但是我们最终被客户端拉出的页面需要css的渲染 需要图片的路径，而loader她可以把各种各样的资源文件进行转变编译，最后用正确的格式加载到浏览器中，比如css被转换为style插入到页面，图片被转换为base64格式</p>
-
-          
+          loaders 用于转换应用程序的资源文件，他们是运行在nodejs下的函数 使用参数来获取一个资源的来源并且返回一个新的来源(资源的位置)，例如：你可以使用loader来告诉webpack去加载一个coffeescript或者jsx
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/20/webpackloader/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -542,7 +494,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
