@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="leinov is a good boy">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leinov">
-<meta property="og:url" content="http://leinov.com/index.html">
+<meta name="description" content="了解webpack请移步webpack初识!什么是loader
+loaders 用于转换应用程序的资源文件，他们是运行在nodejs下的函数 使用参数来获取一个资源的来源并且返回一个新的来源(资源的位置)，例如：你可以使用loader来告诉webpack去加载一个coffeescript或者jsx
+
+loader 特性
+loaders可以串联，他们应用于管道资源，最后的loader将返回javas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack loader">
+<meta property="og:url" content="http://leinov.com/2016/07/20/webpackloader/index.html">
 <meta property="og:site_name" content="Leinov">
-<meta property="og:description" content="leinov is a good boy">
+<meta property="og:description" content="了解webpack请移步webpack初识!什么是loader
+loaders 用于转换应用程序的资源文件，他们是运行在nodejs下的函数 使用参数来获取一个资源的来源并且返回一个新的来源(资源的位置)，例如：你可以使用loader来告诉webpack去加载一个coffeescript或者jsx
+
+loader 特性
+loaders可以串联，他们应用于管道资源，最后的loader将返回javas">
+<meta property="og:updated_time" content="2016-07-20T09:01:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leinov">
-<meta name="twitter:description" content="leinov is a good boy">
+<meta name="twitter:title" content="webpack loader">
+<meta name="twitter:description" content="了解webpack请移步webpack初识!什么是loader
+loaders 用于转换应用程序的资源文件，他们是运行在nodejs下的函数 使用参数来获取一个资源的来源并且返回一个新的来源(资源的位置)，例如：你可以使用loader来告诉webpack去加载一个coffeescript或者jsx
+
+loader 特性
+loaders可以串联，他们应用于管道资源，最后的loader将返回javas">
 
 
 
@@ -113,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://leinov.com/"/>
+  <link rel="canonical" href="http://leinov.com/2016/07/20/webpackloader/"/>
 
-  <title> Leinov </title>
+  <title> webpack loader | Leinov </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,9 +246,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -257,123 +268,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/20/Express-开发性能优化/" itemprop="url">
-                  Express 开发性能优化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-20T16:56:39+08:00" content="2016-07-20">
-              2016-07-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/20/Express-开发性能优化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/20/Express-开发性能优化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-使用浏览器缓存"><a href="#1-使用浏览器缓存" class="headerlink" title="1.使用浏览器缓存"></a>1.使用浏览器缓存</h2><p>在app.js里添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var CACHETIME = 60 * 1000 * 60 * 24 * 30;</div><div class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;), &#123; maxAge: CACHETIME &#125;));</div></pre></td></tr></table></figure>
-<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png" style="width:100%;"></p>
-<blockquote>
-<p>给静态文件设置了一年的的浏览器缓存</p>
-</blockquote>
-<h2 id="2-启用压缩"><a href="#2-启用压缩" class="headerlink" title="2.启用压缩"></a>2.启用压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var compression = require(&apos;compression&apos;);</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.use(compression());</div></pre></td></tr></table></figure>
-<p>＊ 安装compression包<br>＊ express version &gt;3.0.0</p>
-<blockquote>
-<p>即使我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件<br><code>Accept-Encoding:gzip</code><br>会大大减少文件的大小，加快请求速度<br><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113038794-1485073076.png" style="width:60%"></p>
-<p>优化后</p>
-</blockquote>
-<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113422810-763354187.png" width="100%"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/20/webpackloader/" itemprop="url">
-                  webpack loader
-                </a>
+                webpack loader
               
             
           </h1>
@@ -420,9 +315,7 @@
       
 
       
-        
-          
-            <h3 id="了解webpack请移步webpack初识"><a href="#了解webpack请移步webpack初识" class="headerlink" title="了解webpack请移步webpack初识!"></a>了解webpack请移步<a href="http://www.cnblogs.com/leinov/p/5241185.html" target="_blank" rel="external">webpack初识!</a></h3><h2 id="什么是loader"><a href="#什么是loader" class="headerlink" title="什么是loader"></a>什么是loader</h2><blockquote>
+        <h3 id="了解webpack请移步webpack初识"><a href="#了解webpack请移步webpack初识" class="headerlink" title="了解webpack请移步webpack初识!"></a>了解webpack请移步<a href="http://www.cnblogs.com/leinov/p/5241185.html" target="_blank" rel="external">webpack初识!</a></h3><h2 id="什么是loader"><a href="#什么是loader" class="headerlink" title="什么是loader"></a>什么是loader</h2><blockquote>
 <p>loaders 用于转换应用程序的资源文件，他们是运行在nodejs下的函数 使用参数来获取一个资源的来源并且返回一个新的来源(资源的位置)，例如：你可以使用loader来告诉webpack去加载一个coffeescript或者jsx</p>
 </blockquote>
 <h2 id="loader-特性"><a href="#loader-特性" class="headerlink" title="loader 特性"></a>loader 特性</h2><ul>
@@ -464,16 +357,20 @@
 <p>CLI方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack --module-bind &quot;png=url-loader?mimetype=image/png&quot;</div></pre></td></tr></table></figure></p>
 <h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><p>&gt;<br>以上文段皆翻译自webpack官网若有错误请指正，接下来说下个人对loader的理解，我觉得loader是一个很于意思的功能，webpack其实运行在node下的一个编译站，她可以将各种个样的文件打包起来，包括图片呀，css呀，视频呀，但无论怎么打包最后导出的都是javascrit，但是我们最终被客户端拉出的页面需要css的渲染 需要图片的路径，而loader她可以把各种各样的资源文件进行转变编译，最后用正确的格式加载到浏览器中，比如css被转换为style插入到页面，图片被转换为base64格式</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -481,19 +378,32 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/20/Express-开发性能优化/" rel="prev" title="Express 开发性能优化">
+                Express 开发性能优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -501,6 +411,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/20/webpackloader/"
+           data-title="webpack loader" data-url="http://leinov.com/2016/07/20/webpackloader/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -520,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xs3p0.com1.z0.glb.clouddn.com/leinov.png"
@@ -620,6 +547,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#了解webpack请移步webpack初识"><span class="nav-number">1.</span> <span class="nav-text">了解webpack请移步webpack初识!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是loader"><span class="nav-number"></span> <span class="nav-text">什么是loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader-特性"><span class="nav-number"></span> <span class="nav-text">loader 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析loaders"><span class="nav-number"></span> <span class="nav-text">解析loaders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用loaders"><span class="nav-number"></span> <span class="nav-text">引用loaders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装loaders"><span class="nav-number"></span> <span class="nav-text">安装loaders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number"></span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#require"><span class="nav-number">1.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLI-命令行界面"><span class="nav-number">3.</span> <span class="nav-text">CLI(命令行界面)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询参数"><span class="nav-number"></span> <span class="nav-text">查询参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#require里"><span class="nav-number">1.</span> <span class="nav-text">require里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件里"><span class="nav-number">2.</span> <span class="nav-text">配置文件里</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人理解"><span class="nav-number"></span> <span class="nav-text">个人理解</span></a></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -723,6 +661,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
