@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="性能优化,leinov,," />
+  <meta name="keywords" content="leinov"" />
 
 
 
@@ -84,20 +84,16 @@
 
 
 
-<meta name="description" content="我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件">
+<meta name="description" content="根据数组内对象的某个属性排序12345678910111213141516function createComparisonFunction(propertyName)&amp;#123;    return function(object1, object2)&amp;#123;        var value1 = object1[propertyName];        var value2 = obj">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Express 开发性能优化 ｜leinov">
-<meta property="og:url" content="http://leinov.com/2016/07/20/Express-开发性能优化/index.html">
+<meta property="og:title" content="code segment | Leinov">
+<meta property="og:url" content="http://leinov.com/2016/07/21/code-segment-Leinov/index.html">
 <meta property="og:site_name" content="Leinov">
-<meta property="og:description" content="我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113038794-1485073076.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113422810-763354187.png">
-<meta property="og:updated_time" content="2016-07-20T09:28:41.000Z">
+<meta property="og:description" content="根据数组内对象的某个属性排序12345678910111213141516function createComparisonFunction(propertyName)&amp;#123;    return function(object1, object2)&amp;#123;        var value1 = object1[propertyName];        var value2 = obj">
+<meta property="og:updated_time" content="2016-07-21T03:20:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Express 开发性能优化 ｜leinov">
-<meta name="twitter:description" content="我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png">
+<meta name="twitter:title" content="code segment | Leinov">
+<meta name="twitter:description" content="根据数组内对象的某个属性排序12345678910111213141516function createComparisonFunction(propertyName)&amp;#123;    return function(object1, object2)&amp;#123;        var value1 = object1[propertyName];        var value2 = obj">
 
 
 
@@ -118,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://leinov.com/2016/07/20/Express-开发性能优化/"/>
+  <link rel="canonical" href="http://leinov.com/2016/07/21/code-segment-Leinov/"/>
 
-  <title> Express 开发性能优化 ｜leinov | Leinov </title>
+  <title> code segment | Leinov | Leinov </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +256,7 @@
             
             
               
-                Express 开发性能优化 ｜leinov
+                code segment | Leinov
               
             
           </h1>
@@ -272,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-20T16:56:39+08:00" content="2016-07-20">
-              2016-07-20
+            <time itemprop="dateCreated" datetime="2016-07-21T11:19:33+08:00" content="2016-07-21">
+              2016-07-21
             </time>
           </span>
 
@@ -283,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/20/Express-开发性能优化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/20/Express-开发性能优化/" itemprop="commentsCount"></span>
+                <a href="/2016/07/21/code-segment-Leinov/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/code-segment-Leinov/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -307,20 +303,7 @@
       
 
       
-        <h2 id="1-使用浏览器缓存"><a href="#1-使用浏览器缓存" class="headerlink" title="1.使用浏览器缓存"></a>1.使用浏览器缓存</h2><p>在app.js里添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var CACHETIME = 60 * 1000 * 60 * 24 * 30;</div><div class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;), &#123; maxAge: CACHETIME &#125;));</div></pre></td></tr></table></figure>
-<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png" style="width:100%;"></p>
-<blockquote>
-<p>给静态文件设置了一年的的浏览器缓存</p>
-</blockquote>
-<h2 id="2-启用压缩"><a href="#2-启用压缩" class="headerlink" title="2.启用压缩"></a>2.启用压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var compression = require(&apos;compression&apos;);</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.use(compression());</div></pre></td></tr></table></figure>
-<p>＊ 安装compression包<br>＊ express version &gt;3.0.0</p>
-<blockquote>
-<p>即使我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件<br><code>Accept-Encoding:gzip</code><br>会大大减少文件的大小，加快请求速度<br><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113038794-1485073076.png" style="width:60%"></p>
-<p>优化后</p>
-</blockquote>
-<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113422810-763354187.png" width="100%"></p>
-<a id="more"></a>
+        <h3 id="根据数组内对象的某个属性排序"><a href="#根据数组内对象的某个属性排序" class="headerlink" title="根据数组内对象的某个属性排序"></a>根据数组内对象的某个属性排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function createComparisonFunction(propertyName)&#123;</div><div class="line">    return function(object1, object2)&#123;</div><div class="line">        var value1 = object1[propertyName];</div><div class="line">        var value2 = object2[propertyName];</div><div class="line">        if (value1 &lt; value2)&#123;</div><div class="line">            return -1;</div><div class="line">        &#125; else if (value1 &gt; value2)&#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;</div><div class="line">    &#125; ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var data = [&#123;name : &quot;leinov&quot;, inbeijing:4&#125;, &#123;name:&quot;penpen&quot;, inbeijing:3&#125;];</div><div class="line">data.sort(createComparisonFunction(&quot;inbeijing&quot;));</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -340,28 +323,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/性能优化-leinov/" rel="tag">#性能优化,leinov,</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/20/webpackloader/" rel="next" title="leinov-webpack loader ｜leinov">
-                <i class="fa fa-chevron-left"></i> leinov-webpack loader ｜leinov
+              <a href="/2016/07/20/Express-开发性能优化/" rel="next" title="Express 开发性能优化 ｜leinov">
+                <i class="fa fa-chevron-left"></i> Express 开发性能优化 ｜leinov
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/21/code-segment-Leinov/" rel="prev" title="code segment | Leinov">
-                code segment | Leinov <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -387,8 +360,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/20/Express-开发性能优化/"
-           data-title="Express 开发性能优化 ｜leinov" data-url="http://leinov.com/2016/07/20/Express-开发性能优化/">
+      <div class="ds-thread" data-thread-key="2016/07/21/code-segment-Leinov/"
+           data-title="code segment | Leinov" data-url="http://leinov.com/2016/07/21/code-segment-Leinov/">
       </div>
     
   </div>
@@ -528,7 +501,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-使用浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">1.使用浏览器缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-启用压缩"><span class="nav-number">2.</span> <span class="nav-text">2.启用压缩</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据数组内对象的某个属性排序"><span class="nav-number">1.</span> <span class="nav-text">根据数组内对象的某个属性排序</span></a></li></ol></div>
             
           </div>
         </section>
