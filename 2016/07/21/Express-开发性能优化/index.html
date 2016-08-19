@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="leinov"" />
+  <meta name="keywords" content="性能优化,leinov," />
 
 
 
@@ -84,15 +84,20 @@
 
 
 
-<meta name="description" content="大家好，我是leinov，很高兴在这个浩瀚的宇宙里遇见你!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leinov">
-<meta property="og:url" content="http://leinov.com/tags/leinov-github-nice/index.html">
+<meta name="description" content="我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express 开发性能优化 ｜leinov">
+<meta property="og:url" content="http://leinov.com/2016/07/21/Express-开发性能优化/index.html">
 <meta property="og:site_name" content="Leinov">
-<meta property="og:description" content="大家好，我是leinov，很高兴在这个浩瀚的宇宙里遇见你!">
+<meta property="og:description" content="我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113038794-1485073076.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113422810-763354187.png">
+<meta property="og:updated_time" content="2016-07-23T08:23:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leinov">
-<meta name="twitter:description" content="大家好，我是leinov，很高兴在这个浩瀚的宇宙里遇见你!">
+<meta name="twitter:title" content="Express 开发性能优化 ｜leinov">
+<meta name="twitter:description" content="我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png">
 
 
 
@@ -113,9 +118,9 @@
 
 
 
-  <link rel="canonical" href="http://leinov.com/tags/leinov-github-nice/"/>
+  <link rel="canonical" href="http://leinov.com/2016/07/21/Express-开发性能优化/"/>
 
-  <title> 标签: leinov,github ,nice | Leinov </title>
+  <title> Express 开发性能优化 ｜leinov | Leinov </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,46 +249,147 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        leinov,github ,nice
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Express 开发性能优化 ｜leinov
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-21T00:56:39+08:00" content="2016-07-20">
+              2016-07-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/Express-开发性能优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/Express-开发性能优化/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="1-使用浏览器缓存"><a href="#1-使用浏览器缓存" class="headerlink" title="1.使用浏览器缓存"></a>1.使用浏览器缓存</h2><p>在app.js里添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var CACHETIME = 60 * 1000 * 60 * 24 * 30;</div><div class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;), &#123; maxAge: CACHETIME &#125;));</div></pre></td></tr></table></figure>
+<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719104339294-1676378087.png" style="width:100%;"></p>
+<blockquote>
+<p>给静态文件设置了一年的的浏览器缓存</p>
+</blockquote>
+<h2 id="2-启用压缩"><a href="#2-启用压缩" class="headerlink" title="2.启用压缩"></a>2.启用压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var compression = require(&apos;compression&apos;);</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.use(compression());</div></pre></td></tr></table></figure>
+<p>＊ 安装compression包<br>＊ express version &gt;3.0.0</p>
+<blockquote>
+<p>即使我们在开发中使用gulp，webpack将代码压缩打包，他也只是代码层面的，而使用文件压缩的话，浏览器会加在gzip格式的文件<br><code>Accept-Encoding:gzip</code><br>会大大减少文件的大小，加快请求速度<br><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113038794-1485073076.png" style="width:60%"></p>
+<p>优化后</p>
+</blockquote>
+<p><img src="http://images2015.cnblogs.com/blog/494920/201607/494920-20160719113422810-763354187.png" width="100%"></p>
+<a id="more"></a>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/20/webpackloader/" itemprop="url">
-              
-                <span itemprop="name">leinov-webpack loader ｜leinov</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-20T15:37:05Z"
-              content="2016-07-20" >
-          07-20
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
+          
+            <a href="/tags/leinov/" rel="tag">#leinov</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/20/webpackloader/" rel="next" title="leinov-webpack loader ｜leinov">
+                <i class="fa fa-chevron-left"></i> leinov-webpack loader ｜leinov
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/code-segment-Leinov/" rel="prev" title="code segment | Leinov">
+                code segment | Leinov <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +397,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/21/Express-开发性能优化/"
+           data-title="Express 开发性能优化 ｜leinov" data-url="http://leinov.com/2016/07/21/Express-开发性能优化/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -310,8 +424,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xs3p0.com1.z0.glb.clouddn.com/leinov.png"
@@ -410,6 +533,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-使用浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">1.使用浏览器缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-启用压缩"><span class="nav-number">2.</span> <span class="nav-text">2.启用压缩</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -513,6 +647,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
