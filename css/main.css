@@ -80,6 +80,7 @@ sub {
 }
 img {
   border: 0;
+  border:none;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -413,7 +414,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
   font-size: 14px;
   table-layout: fixed;
   word-wrap: break-all;
@@ -950,7 +951,7 @@ pre .javascript .function {
     margin: 0 -10px;
     padding: 0 10px;
     clear: both;
-    border-top: 1px solid #ddd;
+    /*border-top: 1px solid #ddd;*/
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1092,7 +1093,7 @@ pre .javascript .function {
   box-sizing: border-box;
   margin: auto;
   padding: 3px;
-  border: 1px solid #ddd;
+ /* border: 1px solid #ddd;*/
 }
 .posts-expand .fancybox img {
   margin: 0 auto;
