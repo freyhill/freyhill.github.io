@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://leinov.com/2016/07/21/code-segment-Leinov/index.html">
 <meta property="og:site_name" content="Leinov">
 <meta property="og:description" content="根据数组内对象的某个属性排序12345678910111213141516function createComparisonFunction(propertyName)&amp;#123;    return function(object1, object2)&amp;#123;        var value1 = object1[propertyName];        var value2 = obj">
-<meta property="og:updated_time" content="2016-07-23T08:24:49.000Z">
+<meta property="og:updated_time" content="2017-01-16T09:26:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="code segment | Leinov">
 <meta name="twitter:description" content="根据数组内对象的某个属性排序12345678910111213141516function createComparisonFunction(propertyName)&amp;#123;    return function(object1, object2)&amp;#123;        var value1 = object1[propertyName];        var value2 = obj">
@@ -314,6 +314,7 @@
 
       
         <h3 id="根据数组内对象的某个属性排序"><a href="#根据数组内对象的某个属性排序" class="headerlink" title="根据数组内对象的某个属性排序"></a>根据数组内对象的某个属性排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function createComparisonFunction(propertyName)&#123;</div><div class="line">    return function(object1, object2)&#123;</div><div class="line">        var value1 = object1[propertyName];</div><div class="line">        var value2 = object2[propertyName];</div><div class="line">        if (value1 &lt; value2)&#123;</div><div class="line">            return -1;</div><div class="line">        &#125; else if (value1 &gt; value2)&#123;</div><div class="line">            return 1;</div><div class="line">        &#125; else &#123;</div><div class="line">            return 0;</div><div class="line">        &#125;</div><div class="line">    &#125; ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var data = [&#123;name : &quot;leinov&quot;, inbeijing:4&#125;, &#123;name:&quot;penpen&quot;, inbeijing:3&#125;];</div><div class="line">data.sort(createComparisonFunction(&quot;inbeijing&quot;));</div></pre></td></tr></table></figure>
+<a id="more"></a>
       
     </div>
 
@@ -426,7 +427,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -540,7 +541,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
