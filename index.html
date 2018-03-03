@@ -12,65 +12,114 @@
   <link rel="stylesheet" href="css/animate.css">
   <title>Leinov的小站</title>
   <style>
+  html,body{
+    background: #f8f8f8;
+    padding-bottom: 30px;
+  }
   .title{
     text-align: center;
-    margin-top:100px;
+    padding-top: 80px;
+    padding-bottom: 30px;
     font-size: 60px;
   }
-    .item *{
-      width: 84px;
-      display: block;
-      color:#666;
-    }
-    img{
-      width: 100%;
-      border-radius: 18px;
-      box-shadow: 1px 2px 18px #ddd;
-    }
-     span{
-       text-align: center;
-       padding:10px;
-     }
-     .main{
-       width: 80%;
-       margin:200px auto;
-     }
+  .item{
+    background: #fff;
+    margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #eee;
+  }
+  .column{
+    flex-grow:0;
+  }
+  .item .pic{
+      width: 144px;
+
+  }
+  .left{
+    float: left;
+  }
+  .right{
+    float: right;
+  }
+  h3{
+    margin-top: 30px;
+    font-size: 30px;
+    color:#333;
+  }
+  h5{
+    font-size: 18px;
+    color:#999;
+    margin-top: 5px;
+  }
+  .desc{
+    margin-left: 30px
+  }
   </style>
 </head>
 
 <body>
   <div class="title">Leinov</div>
-  <div class="columns main">
-    <div class="item column">
-        <a href="https://github.com/leinov">
-        <img src="img/github_logo.png" alt="leinov的github">
-        <span>github</span>
+  <div class=" main">
+    <div class="item ">
+      <a href= "https://github.com/leinov">
+          <div class="is-clearfix">
+            <div class=" left "><img src="img/github_logo.png" alt="leinov的github"></div>
+            <div class="desc left">
+              <h3>github</h3>
+              <h5>放代码的地方</h5>
+            </div>
+          </div>
       </a>
     </div>
-    <div class="item column">
-        <a href="https://github.com/leinov">
-        <img src="img/keep_logo.png" alt="leinov的keep">
-        <span>keep</span>
+    <div class="item ">
+        <a href= "https://show.gotokeep.com/users/5713a0ea06c43011119db742">
+          <div class="is-clearfix">
+            <div class=" left "><img src="img/keep_logo.png" alt="leinov的github"></div>
+            <div class="desc left">
+              <h3>keep</h3>
+              <h5>撸铁长肌肉的地儿</h5>
+            </div>
+          </div>
+        </a>
+    </div>
+    <div class="item ">
+      <a href= "https://node.kg.qq.com/personal?uid=619d9c8c262b3f82">
+          <div class="is-clearfix">
+            <div class=" left "><img src="img/kge_logo.png" alt="leinov的github"></div>
+            <div class="desc left">
+              <h3>全民k歌</h3>
+              <h5>乱吼的地方</h5>
+            </div>
+          </div>
       </a>
     </div>
-    <div class="item column">
-        <a href="https://github.com/leinov">
-        <img src="img/kge_logo.png" alt="leinov的keep">
-        <span>全民k歌</span>
+    <div class="item ">
+      <a href= "https://instagram.com/_leinov/">
+          <div class="is-clearfix">
+            <div class=" left "><img src="img/instagram_logo.png" alt="leinov的github"></div>
+            <div class="desc left">
+              <h3>instagram</h3>
+              <h5>皂片存放地儿</h5>
+            </div>
+          </div>
       </a>
     </div>
-    <div class="item column">
-        <a href="https://github.com/leinov">
-        <img src="img/instagram_logo.png" alt="leinov的keep">
-        <span>instagram</span>
+    <div class="item ">
+      <a href= "https://weibo.com/leinov?profile_ftype=1&is_all=1#_0">
+          <div class="is-clearfix">
+            <div class=" left "><img src="img/weibo_logo.png" alt="leinov的github"></div>
+            <div class="desc left">
+              <h3>微博</h3>
+              <h5>这个地儿</h5>
+            </div>
+          </div>
       </a>
     </div>
-    <div class="item column">
-        <a href="https://github.com/leinov">
-        <img src="img/weibo_logo.png" alt="leinov的keep">
-        <span>微博</span>
-      </a>
-    </div>
+
   </div>
 </body>
 </html>
