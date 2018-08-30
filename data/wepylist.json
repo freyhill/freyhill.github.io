@@ -1,0 +1,49 @@
+{
+  "code": 0,
+  "success": "true",
+  "msg": "",
+  "data": [
+    {
+      "id": 1,
+      "name": "周杰伦",
+      "age": 39,
+      "address": "中国台北",
+      "sex": 1
+    },
+    {
+      "id": 2,
+      "name": "李健",
+      "age": 44,
+      "address": "中国北京",
+      "sex": 1
+    },
+    {
+      "id": 3,
+      "name": "谢霆锋",
+      "age": 38,
+      "address": "中国香港",
+      "sex": 1
+    },
+    {
+      "id": 4,
+      "name": "庾澄庆",
+      "age": 57,
+      "address": "中国台湾",
+      "sex": 1
+    },
+    {
+      "id": 5,
+      "name": "那英",
+      "age": 51,
+      "address": "中国北京",
+      "sex": 2
+    },
+    {
+      "id": 6,
+      "name": "汪峰",
+      "age": 48,
+      "address": "中国北京",
+      "sex": 1
+    }
+  ]
+}
