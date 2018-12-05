@@ -1,0 +1,137 @@
+
+
+ 赶紧阅读读此文，我保证，在过去的几个月里我，我确定我在数组问题上犯过4次错误。于是我写下这篇文章，阅读这篇文章可以让你更准确的使用javascript数组的一些方法
+
+
+
+### 使用Array.includes替代 Array.indexOf
+ “如果你在数组中搜索某个元素，那么请使用Array.indexOf” ，我记得在学习javascript时看到过这个句子，毫无疑问，这句话很对。
+ 
+ MDN文档上这样描述 rray.indexOf“返回第一个被搜索到的元素的下标（索引）” ，所以如果你想要搜索某个元素的下标，那么Array.indexOf可以很好的解决。
+ 
+ 但是，如果我们想查看一个数组中是否包涵某个元素该如何做呢。就像yes/no这样的问题，也就是布尔值。这里我们推荐使用返回布尔值的Array.includes方法。 
+
+ ```
+ const persons = ["jay","leinov","jj","nico"];
+ 
+ console.log(persons.indexOf("leinov"));
+ // 1
+ 
+ console.log(persons.indexOf("beyond"));
+ // -1
+ 
+ 
+  console.log(persons.includes("leinov"));
+ // true
+ 
+ console.log(persons.includes("beyond"));
+ // false
+ ```
+ 
+ 
+
+### 使用Array.find代替Array.filter
+Array.filter是一个非常有用的方法，它通过一个数组的回调参数创建一个新的数组，正如他的名字所示，我们使用它过滤出一个更短的数组
+
+但是 如果我们明确的知道回调函数返回的只是数组中的一项，这样的话我不推荐使用他，例如，当使用的回调参数过滤的是一个唯一的id，这种情况，Array.filter返回一个新的包涵这一项的数组。寻找一个特殊的id，我们目的只想取一项出来，这个返回的数组就是无用的。
+
+接下来我们看下性能，为了返回能够匹配回调函数的每一项，Array.filter必须检索整个数组，此外让我们想象下，我们有数百个项满足我们的回调参数函数，我们过滤的数组就非常大了。
+
+为了避免这种情况，我推荐**Array.find** ,他同Array.filter一样需要一个回调函数参数，并且返回第一个能够满足回调函数参数的那一项。并且Array.find 在满足筛选后停止筛选，不会检索整个数组。
+```
+use strict';
+
+const singers = [
+  { id: 1, name: '周杰伦' },
+  { id: 2, name: '李建' },
+  { id: 3, name: '庾澄庆' },
+  { id: 4, name: '谢霆锋' },
+  { id: 5, name: '周杰伦' },
+];
+
+function getSinger(name) {
+  return signer => signer.name === name;
+}
+
+console.log(singers.filter(getSinger('周杰伦')));
+// [
+//   { id: 1, name: '周杰伦' },
+//   { id: 5, name: '周杰伦' },
+// ]
+
+console.log(characters.find(getSinger('周杰伦')));
+// { id: 1, name: '周杰伦' }
+```
+
+
+### 使用Array.some代替Array.find
+我承认经常在这上面犯错，然后，我的一个好朋友提醒我看下MDN文档去寻找一个更好的方式解决，这点跟上面的Array.indexOf/Array.includes很相似
+
+在前面提到 Array.find 需要一个回调函数作为参数来返回一个满足的元素。如果我们需要知道数组是否包涵某个值时，Array.find是最好的方式吗。或许不是，因为返回的是一个值，不是一个布尔值。
+
+在这种情况下，我推荐使用Array.some，它返回的是一个是否满足回调参数的布尔值
+```
+'use strict';
+
+const characters = [
+  { id: 1, name: 'ironman', env: 'marvel' },
+  { id: 2, name: 'black_widow', env: 'marvel' },
+  { id: 3, name: 'wonder_woman', env: 'dc_comics' },
+];
+
+function hasCharacterFrom(env) {
+  return character => character.env === env;
+}
+
+console.log(characters.find(hasCharacterFrom('marvel')));
+// { id: 1, name: 'ironman', env: 'marvel' }
+
+console.log(characters.some(hasCharacterFrom('marvel')));
+// true
+```
+
+### 使用Array.reduce 代替 Array.filter and Array.map
+让我们来看看Array.reduce，Array.reduce并不太好理解，但是如果我们执行Array.filter，Array.map感觉我们好像错过了什么。
+
+我的意思是，我们检索了数组两次，第一次过滤和创建了一个短的数组，第二次创建了一个新的包涵我们过滤获取到的数组。为了获取结果我们使用了两个数组方法，每个方法都有一个回调函数和一个数组，其中一个Array.filter创建的我们之后是用不到的。
+
+为了避免这个性能的问题，我建议使用Array.reduce来代替。相同的结果，更好的代码。Aaray.reduce允你筛选和添加满足的项目到累加器中。例如，这个累加器可以是一个数字增量，一个要填充的对象，一个字符串或一个数组。
+
+在我们之前的例子中，我们一直在使用Array.map，所以我建议使用Array.reduce来使用累加器来连接数组。在下面的示例中，根据env的值，我们将将其添加到累加器中，或者将此累加器保留为原来的值。
+
+```
+'use strict';
+
+const characters = [
+  { name: 'ironman', env: 'marvel' },
+  { name: 'black_widow', env: 'marvel' },
+  { name: 'wonder_woman', env: 'dc_comics' },
+];
+
+console.log(
+  characters
+    .filter(character => character.env === 'marvel')
+    .map(character => Object.assign({}, character, { alsoSeenIn: ['Avengers'] }))
+);
+// [
+//   { name: 'ironman', env: 'marvel', alsoSeenIn: ['Avengers'] },
+//   { name: 'black_widow', env: 'marvel', alsoSeenIn: ['Avengers'] }
+// ]
+
+console.log(
+  characters
+    .reduce((acc, character) => {
+      return character.env === 'marvel'
+        ? acc.concat(Object.assign({}, character, { alsoSeenIn: ['Avengers'] }))
+        : acc;
+    }, [])
+)
+// [
+//   { name: 'ironman', env: 'marvel', alsoSeenIn: ['Avengers'] },
+//   { name: 'black_widow', env: 'marvel', alsoSeenIn: ['Avengers'] }
+// ]
+```
+
+>  [原文：Here’s how you can make better use of JavaScript arrays](https://medium.freecodecamp.org/heres-how-you-can-make-better-use-of-javascript-arrays-3efd6395af3c)
+
+> 如有哪里翻译错误请指正 3Q
