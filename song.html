@@ -1,0 +1,87 @@
+<!DOCTYPE html font-size="0.625">
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="leinov">
+    <meta name="keywords" content="leinov，程序员之歌，伴奏下载，leinov的github,javascript,css,html,es6,node,webpack,canvas,share,">
+    <meta name="description" content="程序员之歌伴奏下载-Leinov">
+    <title>程序员之歌伴奏下载-Leinov</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .all {
+            padding-top: 10%;
+        }
+
+        .music-pic {
+            width: 30%;
+            margin: auto;
+            min-width: 15rem;
+            border-radius: 100%;
+            overflow: hidden;
+            border: 5px solid #e4e4e4;
+        }
+
+        .music-pic .pic-inner {
+            height: 0;
+            padding-top: 100%;
+            background: #666;
+            position: relative;
+            border-radius: 100%;
+        }
+
+        .music-pic .pic-inner img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button .download {
+            padding: 0.5rem 2rem;
+            background: #F04F51;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 0.3rem;
+            box-shadow: 0 0 3rem #e4e4e4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="music-pic">
+            <div class="pic-inner">
+                <img src="img/pic.png" />
+            </div>
+        </div>
+        <p class="title">程序员之歌</p>
+        <div class="button">
+            <a class="download" download="data/programmersong.mp3" href="data/programmersong.mp3">下载伴奏</a>
+        </div>
+
+    </div>
+</body>
+
+</html>
