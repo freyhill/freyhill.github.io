@@ -5,209 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="author" content="leinov">
-  <meta name="keywords" content="leinov，leinov的github,javascript,css,html,es6,node,webpack,canvas,share,">
-  <meta name="description" content="leinov，leinov的网站，分享有意思的代码实例、网站、应用等等">
-  <link rel="stylesheet" href="css/bulma.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <title>Leinov的小站</title>
+  <meta name="author" content="freyhill">
+  <meta name="keywords" content="freyhill，freyhill的github,javascript,css,html,es6,node,webpack,canvas,share,">
+  <meta name="description" content="Frey Hill的网站，freyhill分享有意思的代码实例、网站、应用等等">
+  <title>Frey Hill's WebSite</title>
   <style>
-  html,body{
-    background: #fafafa;
-    padding-bottom: 30px;
-  }
-
-  .myinfo{
-    padding-top: 40px;
-  }
-  .header-pic{
-    width: 100px;
-    height: 100px;
-    margin:auto;
-    border-radius: 100px;
-    overflow: hidden;
-  }
-  .name{
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    font-size: 30px;
-  }
-  .item{
-    background: #fff;
-    margin-bottom:20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 600px;
-    border-radius: 3px;
-    overflow: hidden;
-    box-shadow: 0 0 20px #eee;
-    -webkit-transition: all 0.6s;
-    transition: all 0.6s;
-  }
-  .item:hover{
-    -webkit-transform: scale3d(1.1, 1.1, 1);
-    transform: scale3d(1.1, 1.1, 1)
-  }
-  .item .pic{
-      width: 144px;
-
-  }
-  .left{
-    float: left;
-  }
-  .right{
-    float: right;
-  }
-  h3{
-    margin-top: 30px;
-    font-size: 30px;
-    color:#333;
-  }
-  h5{
-    font-size: 18px;
-    color:#999;
-    margin-top: 5px;
-  }
-  .desc{
-    margin-left: 30px
-  }
-  @media screen and (max-width: 750px) {
-    .header-pic{
-      width: 60px;
-      height: 60px;
-      margin:auto;
-      border-radius: 100px;
-      overflow: hidden;
+    body{
+      padding: 5vw;
+  
     }
-    .name{
-      text-align: center;
-      padding-top: 10px;
-      padding-bottom: 30px;
+    p{
+      max-width: 60%;
       font-size: 18px;
+      letter-spacing: 1px;
+      line-height: 30px;
     }
-    .item{
-      background: #fff;
-      margin-bottom:20px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
-      border-radius: 3px;
-      overflow: hidden;
-      box-shadow: 0 0 20px #eee;
-      -webkit-transition: all 0.6s;
-      transition: all 0.6s;
-    }
-    .item:hover{
-      -webkit-transform: scale3d(1.1, 1.1, 1);
-      transform: scale3d(1.1, 1.1, 1)
-    }
-    .item img{
-        width: 80px;
-
-    }
-    h3{
-      margin-top: 10px;
-      font-size: 20px;
-      color:#333;
-    }
-    h5{
-      font-size: 16px;
-      color:#999;
-      margin-top: 5px;
-    }
-    .desc{
-      margin-left: 30px
-    }
-  }
   </style>
 </head>
-
 <body>
-  <div class="myinfo">
-    <div class="header-pic"> <img src="img/headpic.png" alt="leinov" /></div>
-    <div class="name">Leinov</div>
-  </div>
-
-  <div class=" main">
-    <div class="item ">
-      <a href= "https://github.com/leinov">
-          <div class="is-clearfix">
-            <div class=" left "><img src="img/github_logo.png" alt="leinov的github"></div>
-            <div class="desc left">
-              <h3>github</h3>
-              <h5>代码仓库</h5>
-            </div>
-          </div>
-      </a>
-    </div>
-    <div class="item ">
-      <a href= "http://www.leinov.com/blog">
-          <div class="is-clearfix">
-            <div class=" left "><img src="img/blog_logo.png" alt="leinov的博客"></div>
-            <div class="desc left">
-              <h3>博客</h3>
-              <h5>程序世界</h5>
-            </div>
-          </div>
-      </a>
-    </div>
-    <div class="item ">
-        <a href= "https://show.gotokeep.com/users/5713a0ea06c43011119db742">
-          <div class="is-clearfix">
-            <div class=" left "><img src="img/keep_logo.png" alt="leinov的keep"></div>
-            <div class="desc left">
-              <h3>keep</h3>
-              <h5>运动</h5>
-            </div>
-          </div>
-        </a>
-    </div>
-    <div class="item ">
-        <a href= "https://www.jianshu.com/u/c889f2bab40d">
-          <div class="is-clearfix">
-            <div class=" left "><img src="img/jianshu_logo.png" alt="leinov的简书"></div>
-            <div class="desc left">
-              <h3>简书</h3>
-              <h5>写字</h5>
-            </div>
-          </div>
-        </a>
-    </div>
-    <div class="item ">
-      <a href= "https://node.kg.qq.com/personal?uid=619d9c8c262b3f82">
-          <div class="is-clearfix">
-            <div class=" left "><img src="img/kge_logo.png" alt="leinov唱的歌"></div>
-            <div class="desc left">
-              <h3>全民k歌</h3>
-              <h5>乱吼的地方</h5>
-            </div>
-          </div>
-      </a>
-    </div>
-    <div class="item ">
-      <a href= "https://instagram.com/_leinov/">
-          <div class="is-clearfix">
-            <div class=" left "><img src="img/instagram_logo.png" alt="leinov的instagram"></div>
-            <div class="desc left">
-              <h3>instagram</h3>
-              <h5>照片仓库</h5>
-            </div>
-          </div>
-      </a>
-    </div>
-   
-
-  </div>
-  <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?e2af2e72d6fc6794e269ac12c1ea11f0";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
+  <h1>Hi</h1>
+  <h2>I'm Frey Hill </h2>
+  <p>I am a front-end development engineer. I live in Beijing, China. I am currently working as a front-end development engineer at an Information Internet Company. I love my job and writing code that makes me happy. In addition to work, I also like sports, photography and making music. I like to create new things, which makes me feel so excited. You are welcome to communicate with me. My WeChat ID is freyhill </p>
+  <!-- <span>You can find me from the following platforms:</span>
+  <ul class="list">
+    <li></li>
+  </ul> -->
 </body>
 </html>
